@@ -2,6 +2,7 @@
 
 # This shell script takes multiple input filenames as arguments
 # and copies them to a "backup_directory" and prints logs to another file
+# Created by Akhil Khandelwal
 
 read -p "Please enter file names separated by space: " file_names
 touch LOG.txt
@@ -26,10 +27,11 @@ do
 		cp $file backup_directory/
 	else
 		echo "$file doesn't exist. Skipping"
-		echo "$file - FAILURE!" >> LOG.txt
+		echo "$file - FAILURE! File doesn't exist" >> LOG.txt
 	fi
 done
 
+echo "End of script" >> LOG.txt
 echo "---------------------------------"
 echo "Log file generated:"
 cat LOG.txt
